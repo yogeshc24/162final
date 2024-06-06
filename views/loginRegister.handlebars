@@ -1,0 +1,96 @@
+
+{{!< main }}
+<section class="login-register">
+    <section class="login-area">
+        <h2>Login</h2>
+        <!-- errors will appear here -->
+        {{#if loginError}}
+            <p style="color: red;">{{loginError}}</p>
+        {{/if}}
+        <form action="/login" method="POST">
+            <!-- the login form goes here -->     
+            <label for="login-username">Username:</label>
+            <input type="text" id="login-username" name="username" required>   
+            <button type="submit">Login</button>
+        </form>
+
+        <form action="/login" method="POST"></form>
+            <h2>Sign In</h2>
+            <a href="/auth/google" class="google-login-button">Sign In with Google</a>
+        </form>
+    </section>
+    <div class = "separator">
+        <p></p>
+    </div>
+     <section class = "register-area">
+        <h2>Register</h2>
+        <!-- errors will appear here -->
+        {{#if regError}}
+            <p style="color: red;">{{regError}}</p>
+        {{/if}}
+        <form action="/register" method="POST">
+            <!-- the registration form goes here -->
+            <label for="register-username"> Username: </label>
+            <input type="text" id="register-username" name="username" required>
+            
+            <button type="submit">Register</button>
+        </form>
+    </section>
+</section>
+
+<style>
+    .login-register {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start; /* Align items to the top */
+        padding: 20px;
+        max-width: 800px; /* Adjust as necessary */
+        margin: auto; /* Center the container */
+    }
+
+    .login-area, .register-area {
+        width: 45%;
+    }
+
+    .google-login-button {
+        display: inline-block;
+        padding: 10px 20px;
+        margin-top: 10px;
+        background-color: #4285F4;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        font-size: 16px;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+    }
+
+    .google-login-button:hover {
+        background-color: #357ae8;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    form label, form input {
+        margin-bottom: 10px;
+    }
+
+    form button {
+        margin-top: 10px;
+    }
+
+    .separator {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 20px; /* Adjust as necessary */
+    }
+
+    .separator p {
+        font-size: 1.2em;
+        font-weight: bold;
+    }
+</style>

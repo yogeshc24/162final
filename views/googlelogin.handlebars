@@ -1,0 +1,52 @@
+
+{{!< main }}
+<section class="login-register">
+    <section class="login-area">
+        <form action="/login" method="POST"></form>
+            <h2>Sign In</h2>
+            <a href="/auth/google" class="google-login-button">Sign In with Google</a>
+        </form>
+    </section>
+</section>
+
+<style>
+    .login-register {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+    }
+
+    .login-area {
+        width: 100%;
+        max-width: 400px;
+        text-align: center;
+    }
+    .google-login-button {
+        display: inline-block;
+        padding: 10px 20px;
+        margin-top: 10px;
+        background-color: #4285F4;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        font-size: 16px;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+    }
+    .google-login-button:hover {
+        background-color: #357ae8;
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    form label, form input {
+        margin-bottom: 10px;
+    }
+
+    form button {
+        margin-top: 10px;
+    }
+</style>

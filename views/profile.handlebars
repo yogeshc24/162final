@@ -1,0 +1,134 @@
+{{! Use the main layout }}
+{{!< main }}
+
+<div class="profile-container">
+    <div class="profile-avatar">
+        <!-- Correct path for the default avatar image -->
+        <img src="{{#if user.avatar_url}}{{user.avatar_url}}{{else}}/avatar/{{user.username}}{{/if}}" alt="{{user.username}}'s avatar" class="profile-avatar-img">
+    </div>
+    
+     <section class="profile-info">
+        <h1>{{user.username}}</h1>
+        <p>Username: {{user.username}}</p>
+        <p>Member since: {{user.memberSince}}</p>
+        <div class="social-media-links">
+        
+                <h3>Follow me on:</h3>
+                
+                   
+                        <a href="https://x.com/" target="_blank">Twitter</a>
+                  
+                        <a href="{{user.socialMedia.facebook}}" target="_blank">Facebook</a>
+                 
+                
+                        <a href="{{user.socialMedia.instagram}}" target="_blank">Instagram</a>
+            
+                
+           
+        </div>
+    </section>
+</div>
+
+<section class="user-posts">
+    <!-- you can call posts tweets, or truths, or whatever, these are neologisms. Choose your own new in server.js -->
+    <h2>Your {{{postNeoType}}}s</h2>
+    
+    <!-- you'll need to make this conditaionl and #each expression work -->
+    {{#if user.posts.length}}
+        <ul>
+            {{#each user.posts}}
+                 {{> post this userId=../userId user=../user}}      
+                 
+            {{/each}}
+        </ul>
+    {{else}}
+        <!-- fix this up with some helper functions and other handlebars expressions, or add you own character -->
+        <p>You have not posted yet, poster.</p>
+    {{/if}}
+</section>
+<style>
+.profile-container {
+    display: flex;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+}
+
+.profile-avatar {
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.profile-avatar-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.profile-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.profile-info h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.profile-info p {
+    margin: 5px 0;
+}
+
+.user-social-media {
+    margin-top: 20px;
+}
+
+.user-social-media h2 {
+    margin-bottom: 10px;
+}
+
+.user-social-media ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.user-social-media ul li {
+    margin-bottom: 10px;
+}
+
+.user-social-media ul li a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+.user-social-media ul li a:hover {
+    text-decoration: underline;
+}
+
+.user-posts {
+    margin-top: 20px;
+}
+
+.user-posts h2 {
+    margin-bottom: 10px;
+}
+
+.user-posts ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.user-posts ul li {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+}
+</style>

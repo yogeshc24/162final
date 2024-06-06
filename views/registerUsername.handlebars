@@ -1,0 +1,50 @@
+{{! Use the main layout }}
+{{!< main }}
+
+<section class="login-register">
+    <section class="login-area">
+        <!-- Placeholder for the login area -->
+    </section>
+    <section class="register-area">
+        <h2>Register</h2>
+        <!-- errors will appear here -->
+        {{#if regError}}
+            <p style="color: red;">{{regError}}</p>
+        {{/if}}
+        <form action="/registerUsername" method="POST">
+            <!-- the registration form goes here -->
+            <label for="register-username"> Username: </label>
+            <input type="text" id="register-username" name="username" required>
+            
+            <button type="submit">Register</button>
+        </form>
+    </section>
+</section>
+
+
+<style>
+    .login-register {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 80vh; /* Set the height of the container to full viewport height */
+    }
+
+    .register-area {
+        width: 45%;
+    }
+
+    /* Additional styles for form elements */
+    form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    form label, form input {
+        margin-bottom: 10px;
+    }
+
+    form button {
+        margin-top: 10px;
+    }
+</style>
